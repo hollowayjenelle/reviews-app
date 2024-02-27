@@ -1,7 +1,8 @@
 import React, { useCallback } from "react";
-import Home from "./screens/Home";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+
+import HomeStackNavigator from "./routes/HomeStack";
 
 const App = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -19,7 +20,7 @@ const App = () => {
     return null;
   }
 
-  return <Home onLayout={onLayoutRootView} />;
+  return <HomeStackNavigator onLayout={onLayoutRootView} />;
 };
 
 export default App;
