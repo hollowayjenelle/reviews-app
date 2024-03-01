@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "../screens/Home";
 import ReviewsDetails from "../screens/ReviewDetails";
+import RootDrawerNavigation from "./drawer";
 
 const Stack = createNativeStackNavigator();
 
@@ -10,7 +11,6 @@ const HomeStackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
         screenOptions={{
           headerStyle: {
             backgroundColor: "#4c2e3c",
@@ -22,9 +22,9 @@ const HomeStackNavigator = () => {
         }}
       >
         <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{ title: "GamerInsight" }}
+          name="Root"
+          component={RootDrawerNavigation}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Review Details"

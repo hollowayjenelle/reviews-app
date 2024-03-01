@@ -3,6 +3,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
 import RootDrawerNavigation from "./routes/drawer";
+import HomeStackNavigator from "./routes/HomeStack";
 
 const App = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -20,7 +21,7 @@ const App = () => {
     return null;
   }
 
-  return <RootDrawerNavigation onLayout={onLayoutRootView} />;
+  return <HomeStackNavigator onLayout={onLayoutRootView} />;
 };
 
 export default App;
