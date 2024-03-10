@@ -10,6 +10,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { globalStyles } from "../styles/global";
 import Card from "../shared/card";
+import ReviewForm from "./ReviewForm";
 
 const Home = ({ navigation }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -48,7 +49,7 @@ const Home = ({ navigation }) => {
             onPress={closeModal}
             style={styles.modalToggle}
           />
-          <Text>Hello from the modal</Text>
+          <ReviewForm />
         </View>
       </Modal>
 
