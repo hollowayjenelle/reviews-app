@@ -6,6 +6,8 @@ import {
   FlatList,
   TouchableOpacity,
   Modal,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { globalStyles } from "../styles/global";
@@ -38,19 +40,30 @@ const Home = ({ navigation }) => {
   const closeModal = () => setModalOpen(false);
   const openModal = () => setModalOpen(true);
 
+  const addReview = (review) => {
+    const newReview = {
+      ...review,
+      key: Math.random.toString(),
+    };
+    setReviews((prevReviews) => [newReview, ...prevReviews]);
+    closeModal();
+  };
+
   return (
     <View style={globalStyles.container}>
       <Modal visible={modalOpen} animationType="slide">
-        <View style={styles.modalContent}>
-          <Ionicons
-            name="close-circle"
-            size={24}
-            color="black"
-            onPress={closeModal}
-            style={styles.modalToggle}
-          />
-          <ReviewForm />
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            <Ionicons
+              name="close-circle"
+              size={24}
+              color="black"
+              onPress={closeModal}
+              style={styles.modalToggle}
+            />
+            <ReviewForm handleAdd={addReview} />
+          </View>
+        </TouchableWithoutFeedback>
       </Modal>
 
       <Ionicons

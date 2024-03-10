@@ -3,12 +3,14 @@ import { StyleSheet, Button, TextInput, View, Text } from "react-native";
 import { globalStyles } from "../styles/global";
 import { Formik } from "formik";
 
-const ReviewForm = () => {
+const ReviewForm = ({ handleAdd }) => {
   return (
     <View style={globalStyles.container}>
       <Formik
         initialValues={{ title: "", body: "", rating: "" }}
-        onSubmit={(values) => {}}
+        onSubmit={(values, actions) => {
+          handleAdd(values);
+        }}
       >
         {(formikProps) => (
           <View>
