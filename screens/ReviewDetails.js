@@ -10,13 +10,27 @@ const ReviewDetails = ({ route }) => {
       <Card>
         <Text>{title}</Text>
         <Text>{body}</Text>
-        <View>
-          <Text>GamerInsight rating:</Text>
+        <View style={styles.rating}>
+          <Text style={styles.ratingTxt}>GamerInsight rating:</Text>
           <Image source={images.ratings[rating]} />
         </View>
       </Card>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  rating: {
+    flexDirection: "row",
+    justifyContent: "center",
+    paddingTop: 16,
+    marginTop: 16,
+    borderTopWidth: 1,
+    borderTopColor: "#eee",
+  },
+  ratingTxt: {
+    marginRight: 8,
+  },
+});
 
 export default ReviewDetails;
