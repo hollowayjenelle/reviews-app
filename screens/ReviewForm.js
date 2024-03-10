@@ -41,6 +41,7 @@ const ReviewForm = ({ handleAdd }) => {
             </Text>
             <TextInput
               multiline
+              minHeight={60}
               style={globalStyles.input}
               placeholder="Review Body"
               onChangeText={formikProps.handleChange("body")}

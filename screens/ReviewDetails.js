@@ -8,8 +8,8 @@ const ReviewDetails = ({ route }) => {
   return (
     <View style={globalStyles.container}>
       <Card>
-        <Text>{title}</Text>
-        <Text>{body}</Text>
+        <Text style={styles.reviewTitle}>{title}</Text>
+        <Text style={styles.reviewBody}>{body}</Text>
         <View style={styles.rating}>
           <Text style={styles.ratingTxt}>GamerInsight rating:</Text>
           <Image source={images.ratings[rating]} />
@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   rating: {
     flexDirection: "row",
     justifyContent: "center",
+    alignContent: "center",
     paddingTop: 16,
     marginTop: 16,
     borderTopWidth: 1,
@@ -30,6 +31,19 @@ const styles = StyleSheet.create({
   },
   ratingTxt: {
     marginRight: 8,
+    fontWeight: "bold",
+    fontSize: 16,
+    marginTop: -2,
+  },
+  reviewTitle: {
+    fontFamily: "nunito-bold",
+    fontSize: 24,
+    textAlign: "center",
+    marginBottom: 15,
+  },
+  reviewBody: {
+    fontFamily: "nunito-regular",
+    fontSize: 18,
   },
 });
 
